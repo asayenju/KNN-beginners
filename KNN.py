@@ -1,4 +1,5 @@
 import numpy as np
+from collections import Counter
 def euclidean_distance(x1, x2):
     distance = np.sqrt(np.sumz(x1-x2)**2) 
     return distance
@@ -23,3 +24,5 @@ class KNN:
         k_nearest_labels = [self.y_train[i] for i in k_indices]
 
         #majority voyage
+        most_common = Counter(k_nearest_labels).most_common()
+        return most_common
